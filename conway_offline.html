@@ -229,6 +229,8 @@
 					}
 					$('.rows').animate({opacity: '1'},500);
 					$('.cells').click(function(){toggle($(this));});
+					// contains the number of cycles elapsed. Intentionnally set globally
+					numCycles = 0;
 				}
 				
 				// manually change the state of a cell
@@ -287,8 +289,6 @@
 					}).mouseleave(function(){
 						$('#menu .buttons').animate({opacity: 0.5},40);
 					});
-					// contains the number of cycles elapsed. Intentionnally set globally
-					numCycles = 0;
 					$('#cycles').append('<h1></h1>')
 					.attr('id','cycles')
 					.text('0');
