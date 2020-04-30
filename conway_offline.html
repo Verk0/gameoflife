@@ -1,0 +1,441 @@
+<!doctype html>
+<html>
+	<!--
+		                .+~                :xx++::
+                   :`. -          .!!X!~"?!`~!~!. :-:.
+                  {             .!!!H":.~ ::+!~~!!!~ `%X. 		Salut c'est Albert.
+                  '             ~~!M!!>!!X?!!!!!!!!!!...!~.		J'approuve cette version du jeu de la vie
+                              {!:!MM!~:XM!!!!!!.:!..~ !.  `{	de Conway faite par Thomas Guzal
+                  {: `   :~ .:{~!!M!XXHM!!!X!XXHtMMHHHX!  ~ ~
+                ~~~~{' ~!!!:!!!!!XM!!M!!!XHMMMRMSXXX!!!!!!:  {`	 ...enfin, même si elle est codée avec le q
+                  `{  {::!!!!!X!X?M!!M!!XMMMMXXMMMM??!!!!!?!:~{		parce que c'est un piètre développeur.
+               : '~~~{!!!XMMH!!XMXMXHHXXXXM!!!!MMMMSXXXX!!!!!!!~
+            :    ::`~!!!MMMMXXXtMMMMMMMMMMMHX!!!!!!HMMMMMX!!!!!: ~
+               '~:~!!!!!MMMMMMMMMMMMMMMMMMMMMMXXX!!!M??MMMM!!X!!i:
+               {~{!!!!!XMMMMMMMMMMMM8M8MMMMM8MMMMMXX!!!!!!!!X!?t?!:
+               ~:~~!!!!?MMMMMM@M@RMRRR$@@MMRMRMMMMMMXSX!!!XMMMX{?X!
+             :XX {!!XHMMMM88MM88BR$M$$$$8@8RN88MMMMMMMMHXX?MMMMMX!!!
+           .:X! {XMSM8M@@$$$$$$$$$$$$$$$$$$$B8R$8MMMMMMMMMMMMMMMMX!X
+          :!?! !?XMMMMM8$$$$8$$$$$$$$$$$$$$BBR$$MMM@MMMMMMMMMMMMMM!!X
+        ~{!!~ {!!XMMMB$$$$$$$$$$$$$$$$$$$$$$$$MMR$8MR$MMMMMMMMMMMMM!?!:
+        :~~~ !:X!XMM8$$$$$$$$$$$$$$$$$$$$$$$RR$$MMMMR8NMMMMMMMMMMMMM{!`-
+    ~:{!:~`~':!:HMM8N$$$$$$$$$$$$$$$$$$$$$$$$$8MRMM8R$MRMMMMMMMMRMMMX!
+  !X!``~~   :~XM?SMM$B$$$$$$$$$$$$$$$$$$$$$$BR$$MMM$@R$M$MMMMMM$MMMMX?L
+ X~.      : `!!!MM#$RR$$$$$$$$$$$$$$$$$R$$$$$R$M$MMRRRM8MMMMMMM$$MMMM!?:
+ ! ~ {~  !! !!~`` :!!MR$$$$$$$$$$RMM!?!??RR?#R8$M$MMMRM$RMMMM8MM$MMM!M!:>
+: ' >!~ '!!  !   .!XMM8$$$$$@$$$R888HMM!!XXHWX$8$RM$MR5$8MMMMR$$@MMM!!!{ ~
+!  ' !  ~!! :!:XXHXMMMR$$$$$$$$$$$$$$$$8$$$$8$$$MMR$M$$$MMMMMM$$$MMM!!!!
+ ~{!!!  !!! !!HMMMMMMMM$$$$$$$$$$$$$$$$$$$$$$$$$$MMM$M$$MM8MMMR$$MMXX!!!!/:`
+  ~!!!  !!! !XMMMMMMMMMMR$$$$$$$$$$$$R$RRR$$$$$$$MMMM$RM$MM8MM$$$M8MMMX!!!!:
+  !~ ~  !!~ XMMM%!!!XMMX?M$$$$$$$$B$MMSXXXH?MR$$8MMMM$$@$8$M$B$$$$B$MMMX!!!!
+  ~!    !! 'XMM?~~!!!MMMX!M$$$$$$MRMMM?!%MMMH!R$MMMMMM$$$MM$8$$$$$$MR@M!!!!!
+  {>    !!  !Mf x@#"~!t?M~!$$$$$RMMM?Xb@!~`??MS$M@MMM@RMRMMM$$$$$$RMMMMM!!!!
+  !    '!~ {!!:!?M   !@!M{XM$$R5M$8MMM$! -XXXMMRMBMMM$RMMM@$R$BR$MMMMX??!X!!
+  !    '!  !!X!!!?::xH!HM:MM$RM8M$RHMMMX...XMMMMM$RMMRRMMMMMMM8MMMMMMMMX!!X!
+  !     ~  !!?:::!!!MXMR~!MMMRMM8MMMMMS!!M?XXMMMMM$$M$M$RMMMM8$RMMMMMMMM%X!!
+  ~     ~  !~~X!!XHMMM?~ XM$MMMMRMMMMMM@MMMMMMMMMM$8@MMMMMMMMRMMMMM?!MMM%HX!
+           !!!!XSMMXXMM .MMMMMMMM$$$BB8MMM@MMMMMMMR$RMMMMMMMMMMMMMMMXX!?H!XX
+           XHXMMMMMMMM!.XMMMMMMMMMR$$$8M$$$$$M@88MMMMMMMMMMMMMMM!XMMMXX!!!XM
+      ~   {!MMMMMMMMRM:XMMMMMMMMMM8R$$$$$$$$$$$$$$$NMMMMMMMM?!MM!M8MXX!!/t!M
+      '   ~HMMMMMMMMM~!MM8@8MMM!MM$$8$$$$$$$$$$$$$$8MMMMMMM!!XMMMM$8MR!MX!MM
+          'MMMMMMMMMM'MM$$$$$MMXMXM$$$$$$$$$$$$$$$$RMMMMMMM!!MMM$$$$MMMMM{!M
+          'MMMMMMMMM!'MM$$$$$RMMMMMM$$$$$$$$$$$$$$$MMM!MMMX!!MM$$$$$M$$M$M!M
+           !MMMMMM$M! !MR$$$RMM8$8MXM8$$$$$$$$$$$$NMMM!MMM!!!?MRR$$RXM$$MR!M
+           !M?XMM$$M.{ !MMMMMMSUSRMXM$8R$$$$$$$$$$#$MM!MMM!X!t8$M$MMMHMRMMX$
+    ,-,   '!!!MM$RMSMX:.?!XMHRR$RM88$$$8M$$$$$R$$$$8MM!MMXMH!M$$RMMMMRNMMX!$
+   -'`    '!!!MMMMMMMMMM8$RMM8MBMRRMR8RMMM$$$$8$8$$$MMXMMMMM!MR$MM!M?MMMMMM$
+          'XX!MMMMMMM@RMM$MM@$$BM$$$M8MMMMR$$$$@$$$$MM!MMMMXX$MRM!XH!!??XMMM
+          `!!!M?MHMMM$RMMMR@$$$$MR@MMMM8MMMM$$$$$$$WMM!MMMM!M$RMM!!.MM!%M?~!
+           !!!!!!MMMMBMM$$RRMMMR8MMMMMRMMMMM8$$$$$$$MM?MMMM!f#RM~    `~!!!~!
+           ~!!HX!!~!?MM?MMM??MM?MMMMMMMMMRMMMM$$$$$MMM!MMMM!!
+           '!!!MX!:`~~`~~!~~!!!!XM!!!?!?MMMM8$$$$$MMMMXMMM!!
+            !!~M@MX.. {!!X!!!!XHMHX!!``!XMMMB$MM$$B$M!MMM!!
+            !!!?MRMM!:!XHMHMMMMMMMM!  X!SMMX$$MM$$$RMXMMM~
+             !M!MMMM>!XMMMMMMMMXMM!!:!MM$MMMBRM$$$$8MMMM~
+             `?H!M$R>'MMMM?MMM!MM6!X!XM$$$MM$MM$$$$MX$f
+              `MXM$8X MMMMMMM!!MM!!!!XM$$$MM$MM$$$RX@"
+               ~M?$MM !MMMMXM!!MM!!!XMMM$$$8$XM$$RM!`
+                !XMMM !MMMMXX!XM!!!HMMMM$$$$RH$$M!~
+                'M?MM `?MMXMM!XM!XMMMMM$$$$$RM$$#
+                 `>MMk ~MMHM!XM!XMMM$$$$$$BRM$M"
+                  ~`?M. !M?MXM!X$$@M$$$$$$RMM#
+                    `!M  !!MM!X8$$$RM$$$$MM#`
+                      !% `~~~X8$$$$8M$$RR#`
+                       !!x:xH$$$$$$$R$R*`
+                        ~!?MMMMRRRM@M#`       
+                         `~???MMM?M"`
+                             ``~~
+	-->
+	<head>
+		<meta charset="utf-8">
+		<title>Conway's game of Life</title>
+		<style>
+			body{
+				background-color: #36393f;
+				/* the layout adapts to the screen's dimensions on load, there should not be any overflow.
+				Nevertheless, if there happens to be any, it shall be hidden */
+				overflow: hidden;
+			}
+			
+			/* text input field asking for the number of columns */
+			#colQuery{
+				display: block;
+				font-size: 1.5em;
+				width: 15em;
+				font-family: Calibri, Arial;
+				text-align: center;
+				color: #FFFFFF;
+				background-color: rgba(0,0,0,0);
+				border: 3px solid #7289da;
+				border-radius: 60px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 20%;
+			}
+			
+			/* the table containing cells. Does not include the menu */
+			#life{
+				width: 100%;
+				margin: auto;
+			}
+			
+			/* rows are revealed progressively, their initial opacity is 0 and gradually becomes 1, cf. function generateLayout */
+			.rows{
+				opacity: 0;
+			}
+			
+			.cells{
+				position: relative;
+			}
+			
+			/* this keeps the cells square, regardless of the window dimensions */
+			.cells:after{
+				content: '';
+				display: block;
+				margin-top: 100%
+			}
+			
+			.dead{
+				background-color: #202225
+			}
+			
+			.live{
+				background-color: #7289da
+			}
+			
+			#menu{
+				position: fixed;
+				top: 20px;
+				left: 20px;
+			}
+			
+			/* the section that indicates the amount of cycles elapsed */
+			#cycles{
+				position: fixed;
+				top: 20px;
+				right: 40px;
+				font-family: Calibri, Arial;
+				color: #FFFFFF;
+				font-size: 3em;
+			}
+			
+			#menu:hover{
+				cursor: default;
+			}
+			
+			.buttons{
+				display: inline-block;
+				background-color: #7289da;
+				opacity: 0;
+				width: 60px;
+				height: 43px;
+				border-radius: 100px;
+				border: 1px solid #101215;
+				margin: 8px;
+				text-align: center;
+				font-size: 30px;
+			}
+			
+			.buttons:hover{
+				cursor: pointer;
+			}
+			
+			/* text inside the buttons */
+			.icons{
+				vertical-align: middle;
+				line-height: normal;
+				display: inline-block;
+				color: #FFFFFF;
+				font-family: emoji;
+			}
+			
+			/* the section that displays when hovering the buttons */			
+			.helpSection{
+				display: none;
+				position: absolute;
+				width: 90%;
+				background-color: rgba(0,0,0,0.3);
+				color: #FFFFFF;
+				text-align: center;
+				margin: auto;
+				padding: 20px;
+				border-radius: 10px;
+				font-family: Calibri, Arial;
+			}
+			
+			/* the pause button only appears when an automatic cycle execution
+			is on, cf. functions autoRunCycle and stopAction */
+			#pauseBtn{
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input type="text" id="colQuery" placeholder="Entrez le nombre de colonnes" autofocus>
+		<table id="life">
+		</table>
+		<nav id="menu">
+		</nav>
+		<nav id="cycles">
+		</nav>
+		<script type="text/javascript" src="jquery-3.5.0.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				// run when an invalid value is entered in the text field asking for the number of columns
+				function wrongInput(){
+					$('#colQuery').attr('placeholder','Mets un nombre, banane')
+					.css('border','3px solid #A04040')
+					.val('');
+				}
+				
+				// generate cells based on screen dimensions and the number of columns entered by user
+				function generateLayout(numcols){
+					$('#life').empty();
+					// this ratio is needed to estimate how many rows are required to fit perfectly into the window
+					var ratio = $(document).height() / $(document).width();
+					// round down to the lower integer to avoid overflow
+					numrows = Math.floor(ratio * numcols);
+					/* add add rows to the table and cells to the row
+					cells are assigned an HTML id 'rowXcolY', ie. 'row0col3' for the fourth cell of the first row */
+					for(i = 0; i < numrows; i++){
+						$('#life').append($('<tr></tr>').addClass('rows'));
+						$('.rows:last').attr('id', 'row' + i);
+						for(j = 0; j < numcols; j++){
+							$('#row' + i).append($('<td></td>').addClass('cells dead'));
+							$('.cells:last').attr('id', 'row' + i + 'col'+ j);
+						}
+					}
+					$('.rows').animate({opacity: '1'},500);
+					$('.cells').click(function(){toggle($(this));});
+				}
+				
+				// manually change the state of a cell
+				function toggle(cell){
+					if (cell.attr('class').includes('live')){
+						var oldstate = 'live';
+						var newstate = 'dead';
+					} else{
+						var oldstate = 'dead';
+						var newstate = 'live';
+					}
+					$(cell).animate({opacity: "0"},60,function(){
+						$(this).addClass(newstate).removeClass(oldstate);
+						$(cell).animate({opacity: "1"},60);
+					});
+				};
+				
+				// generate buttons from the JSON object 'btnList'
+				function generateMenu(){
+					var menuLength = btnList.buttonList.length;
+					/* this variable associate the HTML id of the button with the JS code
+					to executeon click, and is intentionnally set globally to permit access
+					to the JS code it contains even after the loop is done */
+					actions = new Array(menuLength);
+					for(i = 0; i < menuLength; i++){
+						actions[btnList.buttonList[i].id] = btnList.buttonList[i].action;
+						$(menu).append($('<div></div>').addClass('buttons')
+							.attr('id',btnList.buttonList[i].id)
+							.append($('<span></span>').addClass('icons'))
+						).append($('<div></div>')
+							.addClass('helpSection')
+							.attr('id','help' + i)
+							.text(btnList.buttonList[i].helpMessage)
+						);
+						/* the innerHTML JS property is used to avoid the escaping special
+						characters that the .text() jQuery modifier would apply */
+						$('#menu .buttons .icons:last')[0].innerHTML = btnList.buttonList[i].content
+					}
+					// this variable shall contain the id of the interval set for any auto-executed function, typically autoRunCycle
+					currentAction = '';
+					$('#menu .buttons').click(function(){
+						// each button stops the running execution on click, before executing their assigned action
+						stopAction();
+						eval(actions[$(this).attr('id')]);
+					})
+					// when a button is hovered, display its help message
+					$('#menu .buttons').animate({opacity: '0.5'},500)
+						.mouseenter(function(){
+							$(this).next().css('display','block');
+						}).mouseleave(function(){
+							$(this).next().css('display','none');
+						});
+					// opacity of buttons changes when hovering the menu
+					$('#menu').mouseenter(function(){
+						$('#menu .buttons').animate({opacity: 1},60);
+					}).mouseleave(function(){
+						$('#menu .buttons').animate({opacity: 0.5},40);
+					});
+					// contains the number of cycles elapsed. Intentionnally set globally
+					numCycles = 0;
+					$('#cycles').append('<h1></h1>')
+					.attr('id','cycles')
+					.text('0');
+				}
+				
+				// count the number of a cell's live neighbors
+				function liveNeighbors(cellId){
+					var cellId = cellId.slice(3).split('col');
+					var cellRow = parseInt(cellId[0],10);
+					var cellCol = parseInt(cellId[1],10);
+					var nextRow = 'row' + (cellRow+1);
+					var currRow = 'row' + (cellRow);
+					var prevRow = 'row' + (cellRow-1);
+					var nextCol = 'col' + (cellCol+1);
+					var currCol = 'col' + (cellCol);
+					var prevCol = 'col' + (cellCol-1);
+					// pacman mode makes each edge cell consider those on the opposite side as their neighbors
+					if(pacman){
+						if(cellRow == (numrows-1)){
+							nextRow = 'row0';
+						}else if(cellRow == 0){
+							prevRow = 'row' + (numrows-1);
+						}
+						if(cellCol == (numcols-1)){
+							nextCol = 'col0';
+						}else if(cellCol == 0){
+							prevCol = 'col' + (numcols-1);
+						}
+					}
+					var neighbors = 0;
+					if($('#' + prevRow + prevCol).hasClass('live')){neighbors++};
+					if($('#' + prevRow + currCol).hasClass('live')){neighbors++};
+					if($('#' + prevRow + nextCol).hasClass('live')){neighbors++};
+					if($('#' + currRow + nextCol).hasClass('live')){neighbors++};
+					if($('#' + nextRow + nextCol).hasClass('live')){neighbors++};
+					if($('#' + nextRow + currCol).hasClass('live')){neighbors++};
+					if($('#' + nextRow + prevCol).hasClass('live')){neighbors++};
+					if($('#' + currRow + prevCol).hasClass('live')){neighbors++};
+					return neighbors;
+				};
+				
+				// execute a cycle, calling the liveNeighbors function and incrementing the numCycles variable
+				function runCycle(){
+					var kill = []
+					var resurrect = []
+					$.each($('#life .cells').toArray(),function(){
+						var neighbors = liveNeighbors($(this).attr('id'));
+						var state = $(this).hasClass('live');
+						var id = $(this).attr('id');
+						if(!state && neighbors == 3){
+							resurrect.push(id);
+						} else if (state && (neighbors < 2 || neighbors > 3)){
+							kill.push(id);
+						}
+					});
+					$.each(kill,function(index,value){
+						$('#' + value).removeClass('live').addClass('dead');
+					});
+					$.each(resurrect,function(index,value){
+						$('#' + value).removeClass('dead').addClass('live');
+					});
+					numCycles++;
+					$('#cycles').text(numCycles);
+				};
+				
+				// automatically run n=speed cycles every second and keep the interval id in the currentAction variable
+				function autoRunCycle(speed){
+					$('#pauseBtn').css('display','inline-block');
+					var delay = (1000 / speed);
+					currentAction = setInterval(runCycle,delay);
+				};
+				
+				// stop interval identified in the currentAction variable
+				function stopAction(){
+					clearInterval(currentAction);
+					$('#pauseBtn').css('display','none');
+				}
+				
+				// toggle pacman mode, cf function liveNeighbors, edit the button's content and help message
+				function togglePacman(){
+					if(pacman){
+						pacman = false;
+						$('#pacmanBtn .icons')[0].innerHTML = '&#8865;';
+						$('#pacmanBtn').next().text('Les bords de l\'écran sont des murs, à la Mario');
+					} else {
+						pacman = true;
+						$('#pacmanBtn .icons')[0].innerHTML = '&#8904;';
+						$('#pacmanBtn').next().text('Ce qui sort d\'un côté rentre de l\'autre, à la Pacman');
+					}
+				}
+				
+				// generate a random situation with a random number between 0 and 100
+				function randomStates(){
+					$.each($('.cells').toArray(),function(){
+						var bornToBeAlive = (100 * Math.random());
+						if(bornToBeAlive > 25 && bornToBeAlive < 50){
+							toggle($(this));
+						}
+					});
+				}
+				
+				/* JSON object to generate menu buttons :
+					- id : actual HTML id of the button
+					- action : javascript code to execute on click
+					- content : icon of the button, typically a special character or an emoji
+					- helpMessage : help message displayed when hovering the button
+				*/
+				list = '{"buttonList": [' +
+				'{ "id":"runOnce" , "action":"runCycle();" , "content":">&#185;" , "helpMessage":"Exécuter un cycle"},' +
+				'{ "id":"run1" , "action":"autoRunCycle(3);" , "content":">" , "helpMessage":"Exécuter 3 cycles par seconde"},' +
+				'{ "id":"run2" , "action":"autoRunCycle(8);" , "content":"&#8811;" , "helpMessage":"Exécuter 8 cycles par seconde"},' +
+				'{ "id":"run3" , "action":"autoRunCycle(12);" , "content":"&#8921;" , "helpMessage":"Exécuter 12 cycles par seconde"},' +
+				'{ "id":"pacmanBtn" , "action":"togglePacman();" , "content":"&#8904;" , "helpMessage":"Ce qui sort d\'un côté rentre de l\'autre, à la Pacman"},' +
+				'{ "id":"randomBtn" , "action":"randomStates();" , "content":"&#9860;" , "helpMessage":"Générer une situation aléatoire (~1/4 cellules vivantes)"},' +
+				'{ "id":"killAll" , "action":"generateLayout(numcols);" , "content":"&#9760;" , "helpMessage":"Tuer toutes les cellules"},' +
+				'{ "id":"info" , "action":"open(\'https://fr.wikipedia.org/wiki/Jeu_de_la_vie\', \'_blank\');" , "content":"&#9432;" , "helpMessage":"Page Wikipédia du jeu de la vie de Conway"},' +
+				'{ "id":"pauseBtn" , "action":"stopAction();" , "content":"&#2551;&#2551;" , "helpMessage":"Mettre en pause"}]}';
+				
+				btnList = JSON.parse(list);
+				
+				//pacman mode enabled by default, cf function liveNeighbors
+				pacman = true;
+				
+				// detect keyboard entry in the text box and test if it matches the enter key
+				$('#colQuery').keypress(function(key){
+					if(key.which == 13){
+						/* to avoid using regex and dealing with decimal values,
+						kill two bugs with one stone and use the floor method */
+						boxContent = Math.floor($(this)[0].value);
+						if(isNaN(boxContent)){
+							wrongInput();
+						} else {
+							numcols = boxContent;
+							$('#colQuery').animate({opacity:0},150,function(){
+								$(this).css('display','none');
+								generateLayout(numcols);
+								generateMenu();
+							});
+						}
+					}
+				});
+				/*
+					  _
+					=(.)__	quack
+					 (___/
+				*/
+			});
+		</script>
+	</body>
+</html>
